@@ -1,0 +1,60 @@
+.container {
+  display: flex;
+  padding-top: 3.5rem;
+}
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 5px 1rem;
+  background-color: #f8f8f8;
+  position: fixed;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo-img {
+  width: 110px;
+}
+.search-input {
+  width: 100%;
+}
+.settings {
+  width: 180px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.video-list {
+  width: 75vw;
+  margin: 0 auto;
+}
+.left-side {
+  width: 20vw;
+  height: 100vh;
+  background-color: red;
+}
+.card-video {
+  display: flex;
+  gap: 1rem;
+  margin: 0.6rem 0;
+}
+
+.chanel-image {
+  width: 30px;
+  border-radius: 50%;
+}
+.video-chanel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.video-title {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 7px;
+}
+.video-desc {
+  font-size: 0.8rem;
+}

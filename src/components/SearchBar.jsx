@@ -15,25 +15,27 @@ class SearchBar extends React.Component {
   };
   render() {
     return (
-      <div>
+      <>
         <form
           onSubmit={this.onSubmit}
           className="ui search"
-          style={{ width: "80%", margin: "1rem auto" }}
+          style={{ width: "40%", margin: "0 auto" }}
         >
           <div className="ui icon input" style={{ width: "100%" }}>
-            <input
-              onChange={this.onchangeInput}
-              className="prompt"
-              style={{ width: "100%" }}
-              type="text"
-              placeholder="Search videos..."
-            />
-            <i className="search icon"></i>
+            <div className="ui action input" style={{ width: "100%" }}>
+              <input
+                type="search"
+                placeholder="Search..."
+                className="search-input"
+                onChange={this.onchangeInput}
+              />
+              <button className="ui button">
+                <i className="search icon"></i>
+              </button>
+            </div>
           </div>
         </form>
-        <div className="result">{this.state.keyword}</div>
-      </div>
+      </>
     );
   }
 }

@@ -1,7 +1,8 @@
 import axios from "axios";
 import React from "react";
-import SearchBar from "./SearchBar.jsx";
 import VideoList from "./VideoList.jsx";
+import Header from "./Header.jsx";
+import "./style.css";
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -22,14 +23,16 @@ class App extends React.Component {
       }
     );
     this.setState({ data: data });
-    console.log(data);
   };
   render() {
     return (
-      <div>
-        <SearchBar request={this.getData} />
-        <VideoList data={this.state.data} />
-      </div>
+      <>
+        <Header request={this.getData} />
+        <div className="container">
+          <div className="left-side"></div>
+          <VideoList data={this.state.data} />
+        </div>
+      </>
     );
   }
 }
