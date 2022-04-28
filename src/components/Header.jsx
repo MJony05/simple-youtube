@@ -18,10 +18,11 @@ class Header extends React.Component {
         </div>
         <SearchBar request={this.props.request} />
         <div className="settings">
-          <i className="video icon"></i>
-          <i className="th icon large"></i>
+          <i className="plus square outline icon large"></i>
+          <i className="buromobelexperte icon large"></i>
           <i className="bell outline icon large"></i>
-          <i className="user circle icon large"></i>
+          {/* <i className="bell slash outline icon"></i> */}
+          <i className="user circle outline icon large  "></i>
         </div>
       </div>
     );

@@ -7,6 +7,7 @@ class VideoDetails extends React.Component {
     this.state = {
       keyChanel: this.props.val.snippet.channelId,
       chanelImage: "",
+      videoId: "",
     };
     this.getChanel();
   }
@@ -26,8 +27,11 @@ class VideoDetails extends React.Component {
       chanelImage: chanel.data.items[0].snippet.thumbnails.medium.url,
     });
   };
+  getIdClick = () => {
+    this.setState({ videoId: this.props.val.id.videoId });
+    console.log(this.state.videoId);
+  };
   render() {
-    console.log(this.props.val);
     return (
       <>
         <div className="video-image">
@@ -38,8 +42,15 @@ class VideoDetails extends React.Component {
         </div>
 
         <div className="video-info">
-          <h3 className="video-title">{this.props.val.snippet.title}</h3>
-          <p className="video-time">{this.props.val.snippet.publishTime}</p>
+          <h3 onClick={this.getIdClick} className="video-title">
+            {this.props.val.snippet.title}
+          </h3>
+          <p className="video-time">
+            {this.props.val.snippet.publishTime.split("").map((el) => {
+              if (el === "T" || el === "Z") return " ";
+              else return el;
+            })}
+          </p>
           <p className="video-chanel">
             <img src={this.state.chanelImage} alt="" className="chanel-image" />{" "}
             {this.props.val.snippet.channelTitle}

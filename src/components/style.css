@@ -13,9 +13,10 @@
 .logo {
   display: flex;
   align-items: center;
+  gap: 1rem;
 }
 .logo-img {
-  width: 110px;
+  height: 20px;
 }
 .search-input {
   width: 100%;
@@ -27,13 +28,15 @@
   align-items: center;
 }
 .video-list {
-  width: 75vw;
-  margin: 0 auto;
+  width: 85vw;
+  padding: 0 2.5vw;
+  height: 92vh;
+  overflow-y: auto;
 }
 .left-side {
-  width: 20vw;
-  height: 100vh;
-  background-color: red;
+  width: 15vw;
+  height: 92vh;
+  background-color: #f8f8f8;
 }
 .card-video {
   display: flex;
@@ -57,4 +60,7 @@
 }
 .video-desc {
   font-size: 0.8rem;
+}
+.menu__icons {
+  background-color: #f8f8;
 }

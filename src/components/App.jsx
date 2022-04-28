@@ -3,6 +3,7 @@ import React from "react";
 import VideoList from "./VideoList.jsx";
 import Header from "./Header.jsx";
 import "./style.css";
+import MenuBar from "./leftMenu.jsx";
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -29,7 +30,10 @@ class App extends React.Component {
       <>
         <Header request={this.getData} />
         <div className="container">
-          <div className="left-side"></div>
+          <div className="left-side">
+            {" "}
+            <MenuBar />
+          </div>
           <VideoList data={this.state.data} />
         </div>
       </>
