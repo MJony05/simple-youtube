@@ -1,21 +1,18 @@
 import React from "react";
 
-class VideoDetail extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+class VideoItem extends React.Component {
   render() {
     return (
       <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/T3A6sTQEeeM"
+        width="400"
+        height="300"
+        src={"https://www.youtube.com/embed/" + this.props.id}
         title="YouTube video player"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
+        allowFullScreen
       ></iframe>
     );
   }
 }
-export default VideoDetail;
+export default VideoItem;

@@ -12,7 +12,7 @@ class VideoDetails extends React.Component {
     this.getChanel();
   }
   getChanel = async () => {
-    const key = "AIzaSyBvspp_ZO7k6U5beNCEpPmZ3Y_sTkDM-7Q";
+    const key = "AIzaSyClobijxzPHFmV--Necjm9iFgrbJGeFk-c";
     const chanel = await axios.get(
       "https://www.googleapis.com/youtube/v3/channels",
       {
@@ -28,8 +28,7 @@ class VideoDetails extends React.Component {
     });
   };
   getIdClick = () => {
-    this.setState({ videoId: this.props.val.id.videoId });
-    console.log(this.state.videoId);
+    this.props.func(this.props.val.id.videoId);
   };
   render() {
     return (
@@ -42,9 +41,9 @@ class VideoDetails extends React.Component {
         </div>
 
         <div className="video-info">
-          <h3 onClick={this.getIdClick} className="video-title">
+          <a href="#" onClick={this.getIdClick} className="video-title">
             {this.props.val.snippet.title}
-          </h3>
+          </a>
           <p className="video-time">
             {this.props.val.snippet.publishTime.split("").map((el) => {
               if (el === "T" || el === "Z") return " ";

@@ -4,13 +4,15 @@ import VideoList from "./VideoList.jsx";
 import Header from "./Header.jsx";
 import "./style.css";
 import MenuBar from "./leftMenu.jsx";
+
+import VideoItem from "./VideoItem.jsx";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { inputKey: "", data: {} };
+    this.state = { inputKey: "", data: {}, videoId: "" };
   }
   getData = async (keyword) => {
-    const key = "AIzaSyBvspp_ZO7k6U5beNCEpPmZ3Y_sTkDM-7Q";
+    const key = "AIzaSyClobijxzPHFmV--Necjm9iFgrbJGeFk-c";
     const data = await axios.get(
       `https://www.googleapis.com/youtube/v3/search`,
       {
@@ -25,16 +27,39 @@ class App extends React.Component {
     );
     this.setState({ data: data });
   };
+  getVideoId = (id) => {
+    this.setState({ videoId: id });
+  };
+  showVideo = () => {
+    if (this.state.videoId) {
+      return (
+        <div className="ui grid container">
+          <div className="ui row">
+            <div className="eight column wide">
+              <VideoItem id={this.state.videoId} />
+            </div>
+            <div className="four column wide">
+              <VideoList data={this.state.data} videoIdFunc={this.getVideoId} />
+            </div>
+          </div>
+        </div>
+      );
+    } else {
+      return <VideoList data={this.state.data} videoIdFunc={this.getVideoId} />;
+    }
+  };
   render() {
     return (
       <>
         <Header request={this.getData} />
-        <div className="container">
+        <div className="containerr">
           <div className="left-side">
             {" "}
             <MenuBar />
           </div>
-          <VideoList data={this.state.data} />
+
+          {/* <VideoItem id={this.state.videoId} /> */}
+          {this.showVideo()}
         </div>
       </>
     );
