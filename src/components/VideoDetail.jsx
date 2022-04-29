@@ -28,6 +28,10 @@ class VideoDetails extends React.Component {
     });
   };
   getIdClick = () => {
+    if (this.props.getName) {
+      console.log(this.props.getName);
+      this.props.getName(this.props.val.snippet.title);
+    }
     this.props.func(this.props.val.id.videoId);
   };
   render() {

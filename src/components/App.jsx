@@ -9,7 +9,7 @@ import VideoItem from "./VideoItem.jsx";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { inputKey: "", data: {}, videoId: "" };
+    this.state = { inputKey: "", data: {}, videoId: "", videoName: "" };
   }
   getData = async (keyword) => {
     const key = "AIzaSyClobijxzPHFmV--Necjm9iFgrbJGeFk-c";
@@ -30,22 +30,36 @@ class App extends React.Component {
   getVideoId = (id) => {
     this.setState({ videoId: id });
   };
+  getInfoVideo = (nameVideo) => {
+    this.setState({ videoName: nameVideo });
+  };
   showVideo = () => {
     if (this.state.videoId) {
       return (
-        <div className="ui grid container">
-          <div className="ui row">
-            <div className="eight column wide">
-              <VideoItem id={this.state.videoId} />
-            </div>
-            <div className="four column wide">
-              <VideoList data={this.state.data} videoIdFunc={this.getVideoId} />
-            </div>
+        <div className="video-container">
+          <div className="video-big">
+            <VideoItem
+              id={this.state.videoId}
+              videoTitle={this.state.videoName}
+            />
+          </div>
+          <div className="after-search">
+            <VideoList
+              data={this.state.data}
+              videoIdFunc={this.getVideoId}
+              getVideoName={this.getInfoVideo}
+            />
           </div>
         </div>
       );
     } else {
-      return <VideoList data={this.state.data} videoIdFunc={this.getVideoId} />;
+      return (
+        <VideoList
+          data={this.state.data}
+          videoIdFunc={this.getVideoId}
+          getVideoName={this.getInfoVideo}
+        />
+      );
     }
   };
   render() {
@@ -54,7 +68,6 @@ class App extends React.Component {
         <Header request={this.getData} />
         <div className="containerr">
           <div className="left-side">
-            {" "}
             <MenuBar />
           </div>
 
